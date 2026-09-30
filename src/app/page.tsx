@@ -34,9 +34,10 @@ export default function Home() {
           >
             <Hero
               onEnter={() => {
-                setStartMusic(true);
-                setEntered(true);
-              }}
+  window.dispatchEvent(new Event("birthday-start-music"));
+  setStartMusic(true);
+  setEntered(true);
+}}
             />
           </motion.div>
         ) : (

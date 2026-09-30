@@ -21,7 +21,7 @@ export default function MusicPlayer({
 
   // Create audio
   useEffect(() => {
-    const audio = new Audio("/music/khayaal.mp3");
+    const audio = new Audio("/music/Khayaal.mp3");
 
     audio.loop = true;
     audio.volume = 0.45;
@@ -35,6 +35,26 @@ export default function MusicPlayer({
       isPlayingRef.current = false;
     };
   }, []);
+  useEffect(() => {
+  const handleStartMusic = async () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    try {
+      await audio.play();
+      setPlaying(true);
+    } catch (error) {
+      console.error("Could not start music:", error);
+    }
+  };
+
+  window.addEventListener("birthday-start-music", handleStartMusic);
+
+  return () => {
+    window.removeEventListener("birthday-start-music", handleStartMusic);
+  };
+}, []);
 
   // Keep React state and ref synchronized
   const setMusicPlaying = (value: boolean) => {

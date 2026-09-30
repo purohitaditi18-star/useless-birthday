@@ -132,7 +132,7 @@ export default function VideoSection() {
                 playsInline
                 preload="metadata"
                 className="aspect-[9/16] w-full object-contain"
-                src="/video/birthday-message.mp4"
+                src="https://6ezdk9gdxu4rvmgd.public.blob.vercel-storage.com/birthday-message.mp4"
                 onPlay={handleVideoStart}
                 onEnded={handleVideoEnd}
               >
